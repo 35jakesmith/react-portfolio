@@ -1,24 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import  { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Header from './componets/Header.js';
+import Nav from './componets/Nav.js';
+import Footer from './componets/Footer.js';
+import About from './componets/About';
+import Project from './componets/Project.js';
 
 function App() {
+
+  const [navItems] = useState([
+    { name: "About", description: "about me page"},
+    { name: "Project", description: "page containing past projects"},
+  ]);
+
+  const [currentNavItem, setCurrentNavItem] = useState(navItems[0]);
+
   return (
+  <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        {/* <Header /> */}
+        <Nav
+          navItems={navItems}
+          setCurrentNavItem={setCurrentNavItem}
+          currentNavItem={currentNavItem}
+        />
+        <main>
+          <Routes>
+          <Route exact path='/' element={<About />}/>
+            <Route exact path='/about' element={<About />}/>
+            <Route exact path='/project' element={<Project />}/>
+          </Routes>
+        </main>
+        <Footer />
     </div>
+  </Router>
   );
 }
 

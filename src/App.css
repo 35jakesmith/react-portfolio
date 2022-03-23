@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-color: lightblue;
+}
+
+.header-bg {
+  color: black;
+  background-color: white;
+}
+
+.header-name {
+  float: left;
+}
