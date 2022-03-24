@@ -16,7 +16,7 @@ function Nav (props) {
     return (
         <section className='sticky-top'>
             <nav className='d-flex justify-end navbar navbar-expand-lg navbar-light bg-light'>
-                <a className='navbar-brand' href='#'>Jake Smith</a>
+                <a className='navbar-brand' href='#'></a>
                 <ul className='navbar-nav'>
                     {navItems.map((navItem) => (
                         <li className={`nav-link ${ currentNavItem.name === navItem.name && 'active'}`} key={navItem.name} >

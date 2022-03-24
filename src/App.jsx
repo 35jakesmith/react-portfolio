@@ -6,12 +6,15 @@ import Nav from './componets/Nav.js';
 import Footer from './componets/Footer.js';
 import About from './componets/About';
 import Project from './componets/Project.js';
+import Contact from './componets/Contact';
 
 function App() {
 
   const [navItems] = useState([
     { name: "About", description: "about me page"},
     { name: "Project", description: "page containing past projects"},
+    { name: "Contact", description: "page where i can be contacted"}
+
   ]);
 
   const [currentNavItem, setCurrentNavItem] = useState(navItems[0]);
@@ -19,7 +22,7 @@ function App() {
   return (
   <Router>
     <div className="App">
-        {/* <Header /> */}
+        <Header />
         <Nav
           navItems={navItems}
           setCurrentNavItem={setCurrentNavItem}
@@ -30,6 +33,7 @@ function App() {
           <Route exact path='/' element={<About />}/>
             <Route exact path='/about' element={<About />}/>
             <Route exact path='/project' element={<Project />}/>
+            <Route exact path='/contact' element={<Contact />}/>
           </Routes>
         </main>
         <Footer />
